@@ -7,13 +7,16 @@ public class PlayerController : MonoBehaviour {
     public float speed;
 	public float jumpForce;
 
-	private bool grounded;	//checking if the egg is grounded
+    public Vector3 centerOfMass;
+
+    private bool grounded;	//checking if the egg is grounded
 	private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-	}
+        rb.centerOfMass = centerOfMass;
+    }
 
     void FixedUpdate()
     {
