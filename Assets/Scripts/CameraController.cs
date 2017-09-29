@@ -18,10 +18,15 @@ public class CameraController : MonoBehaviour
 	{
 		Assert.IsNotNull( player );
 
-		transform.Rotate( Vector3.right, angleX );
+		transform.Rotate( angleX, 0, 0 );
 	}
 
 	void FixedUpdate( )
+	{
+		FollowPlayer( );
+	}
+
+	private void FollowPlayer( )
 	{
 		Vector3 newPosition = player.transform.position + offset;
 		transform.position = Vector3.SmoothDamp( transform.position, newPosition, ref positionVelocity, smoothing );

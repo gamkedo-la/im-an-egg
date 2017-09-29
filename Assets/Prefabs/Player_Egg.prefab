@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95037951041321730}
   - component: {fileID: 54855487951771132}
   - component: {fileID: 114970966408097236}
+  - component: {fileID: 114144789740359626}
   m_Layer: 0
   m_Name: Player_Egg
   m_TagString: Untagged
@@ -45,7 +46,7 @@ GameObject:
   - component: {fileID: 135715186605270232}
   - component: {fileID: 135186881182085978}
   m_Layer: 0
-  m_Name: Colliders-new-Erik (2)
+  m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225319207174236}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.11, y: 4.68, z: -3.04}
+  m_LocalPosition: {x: 0.16, y: 4.94, z: -2.68}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4167620197802128}
@@ -91,7 +92,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 435b05a72a8d37347b42de115f1a38de, type: 2}
+  - {fileID: 2100000, guid: 99ea56fc5cc726e4c893784a9a2ee296, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,6 +150,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114144789740359626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225319207174236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4ee1aaec45dbb498a30a3540240362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - texture: {fileID: 2800000, guid: 77865830b5c132d4bacebf812cc381ee, type: 3}
+    duation: 5
+  - texture: {fileID: 2800000, guid: 86f1495722c3c04468e051bd8146d3ca, type: 3}
+    duation: 0.1
 --- !u!114 &114970966408097236
 MonoBehaviour:
   m_ObjectHideFlags: 1
