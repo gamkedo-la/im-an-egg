@@ -142,6 +142,7 @@ MonoBehaviour:
   speed: 2
   jumpForce: 0
   fallTooFarY: 0
+  maxImpactForce: 0
   centerOfMass: {x: 0, y: 0, z: 0}
 --- !u!54 &38539180
 Rigidbody:
@@ -264,11 +265,6 @@ Prefab:
     - target: {fileID: 1225319207174236, guid: db76f824208ea4b46b5cce204c15edaf, type: 2}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114970966408097236, guid: db76f824208ea4b46b5cce204c15edaf,
-        type: 2}
-      propertyPath: fallTooFarY
-      value: -25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db76f824208ea4b46b5cce204c15edaf, type: 2}

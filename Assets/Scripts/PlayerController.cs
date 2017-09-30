@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed;
-	public float jumpForce;
+    public float speed; // force added to movement dir
+	public float jumpForce; // force udded for an upward hop
 	public float fallTooFarY; // respawn if we fall below this Y coordinate
-    public Vector3 centerOfMass;
+	public float maxImpactForce; // if we bump too hard we take damage
+    public Vector3 centerOfMass; // for a good wobble
 
-	private Vector3 spawnPosition;
-
+	private Vector3 spawnPosition; // starting position for when we respawn
     private bool grounded;	//checking if the egg is grounded
 	private Rigidbody rb;
 
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 		}
         
 		// ensure we don't fall forever
-		if ((fallTooFarY != 0) && (rb.position.y < fallTooFarY))
+		if ((fallTooFarY != 0f) && (rb.position.y < fallTooFarY))
 		{
 			Debug.Log("We fell out of the world! Respawning.");
 			// TODO: die? play sound etc
@@ -50,6 +50,22 @@ public class PlayerController : MonoBehaviour {
 		if (col.collider.tag == "Floor") {
 			grounded = true;
 		}
+
+		//if (col.relativeVelocity.magnitude > 1.0f) // soft touches are <1 
+		//{
+		//	Debug.Log("Hit the ground with relative velocity: " + col.relativeVelocity.magnitude);
+		//}
+
+		if (maxImpactForce > 0f) // do we care about impact strength?
+		{
+			float impactForce = Vector3.Dot(col.contacts[0].normal,col.relativeVelocity) * rb.mass;
+			if (Mathf.Abs(impactForce) > maxImpactForce)
+			{
+				Debug.Log("Hit something HARD! Impact force = " + impactForce);
+				// FIXME if not a pillow, lose health, etc
+			}
+		}
+
 	}
 
 	void OnCollisionExit(Collision col){
