@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour {
 
     public float speed;
 	public float jumpForce;
-
+	public float fallTooFarY; // respawn if we fall below this Y coordinate
     public Vector3 centerOfMass;
+
+	private Vector3 spawnPosition;
 
     private bool grounded;	//checking if the egg is grounded
 	private Rigidbody rb;
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
+		spawnPosition = new Vector3();
+		spawnPosition = transform.position;
     }
 
     void FixedUpdate()
@@ -29,6 +33,14 @@ public class PlayerController : MonoBehaviour {
 			movement.y = jumpForce;				
 		}
         
+		// ensure we don't fall forever
+		if ((fallTooFarY != 0) && (rb.position.y < fallTooFarY))
+		{
+			Debug.Log("We fell out of the world! Respawning.");
+			// TODO: die? play sound etc
+			transform.position = spawnPosition;
+		}
+
         rb.AddForce(movement * speed);
     }
 
