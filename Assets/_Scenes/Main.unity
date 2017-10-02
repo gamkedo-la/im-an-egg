@@ -144,6 +144,9 @@ MonoBehaviour:
   fallTooFarY: 0
   maxImpactForce: 0
   centerOfMass: {x: 0, y: 0, z: 0}
+  hitPoints: 0
+  impactDamageRatio: 0
+  deathPrefab: {fileID: 0}
 --- !u!54 &38539180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -265,6 +268,16 @@ Prefab:
     - target: {fileID: 1225319207174236, guid: db76f824208ea4b46b5cce204c15edaf, type: 2}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114970966408097236, guid: db76f824208ea4b46b5cce204c15edaf,
+        type: 2}
+      propertyPath: maxImpactForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114970966408097236, guid: db76f824208ea4b46b5cce204c15edaf,
+        type: 2}
+      propertyPath: impactDamageRatio
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db76f824208ea4b46b5cce204c15edaf, type: 2}
@@ -623,6 +636,10 @@ Prefab:
     - target: {fileID: 4382495301251966, guid: f03ac4ddfb059084c8742adca21f3e57, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226280176596404, guid: f03ac4ddfb059084c8742adca21f3e57, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f03ac4ddfb059084c8742adca21f3e57, type: 2}
