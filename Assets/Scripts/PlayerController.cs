@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,7 +59,8 @@ public class PlayerController : MonoBehaviour {
 			myRenderer.enabled = false; // stop drawing the unbroken egg
 			if (deathPrefab)
 			{
-				Instantiate(deathPrefab, transform.position, transform.rotation);
+				var go = Instantiate(deathPrefab, transform.position, transform.rotation);
+				go.GetComponent<SetFragmentMaterials>( ).SetMaterial( GetComponent<MeshRenderer>( ).material.GetTexture( "_MainTex" ) );
 				StartCoroutine(respawnAfterPausing());
 			}
 		}
