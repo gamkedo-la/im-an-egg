@@ -4,8 +4,8 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-	[Header("Dependencies")]
-	[SerializeField, Tooltip("The player object.")] private GameObject player;
+	//[Header("Dependencies")]
+	//[SerializeField, Tooltip("The player object.")] private GameObject player;
 
 	[Header("Parameters")]
 	[SerializeField, Tooltip("How smooth the camera movement will be (lower = smoother).")] private float smoothing = 0.5f;
@@ -13,17 +13,24 @@ public class CameraController : MonoBehaviour
 	[SerializeField, Tooltip("Camera tilt in the X axis.")] private float angleX = 15.0f;
 
 	private Vector3 positionVelocity;
+	private GameObject player;
 
 	void Start( )
 	{
-		Assert.IsNotNull( player );
+		//Assert.IsNotNull( player );
 
 		transform.Rotate( angleX, 0, 0 );
 	}
 
 	void FixedUpdate( )
 	{
-		FollowPlayer( );
+		if (player != null)
+			FollowPlayer( );
+	}
+
+	public void SetPlayer(GameObject player)
+	{
+		this.player = player;
 	}
 
 	private void FollowPlayer( )

@@ -180,10 +180,10 @@ MonoBehaviour:
   speed: 3.5
   jumpForce: 40
   fallTooFarY: -25
-  maxImpactForce: 2
+  maxImpactForce: 3
   centerOfMass: {x: 0, y: 0.3, z: 0}
   hitPoints: 10
-  impactDamageRatio: 1
+  impactDamageRatio: 0.5
   deathPrefab: {fileID: 1226280176596404, guid: f03ac4ddfb059084c8742adca21f3e57,
     type: 2}
 --- !u!135 &135026939545925490

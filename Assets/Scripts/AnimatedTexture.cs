@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,5 +35,14 @@ public class AnimatedTexture : MonoBehaviour {
             material.SetTexture("_MainTex", frames[currentFrame].texture);
             Debug.Log(frames[currentFrame].texture.name);
         }
+	}
+
+	public void Refresh( )
+	{
+		if ( frames.Count > 0 )
+		{
+			material = GetComponent<MeshRenderer>( ).material;
+			material.SetTexture( "_MainTex", frames[0].texture );
+		}
 	}
 }
