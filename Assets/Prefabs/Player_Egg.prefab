@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114144789740359626}
   m_Layer: 0
   m_Name: Player_Egg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 135186881182085978}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: PlayerColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
