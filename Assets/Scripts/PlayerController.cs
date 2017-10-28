@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,6 +13,11 @@ public class PlayerController : MonoBehaviour {
 	public float hitPoints; // health until we crack up
 	public float impactDamageRatio; // ImpactForce x this = hitPoint reduction
 	public GameObject deathPrefab; // the broken shell bits
+	public AudioClip crackOpen; // shell cracking sound
+	public AudioClip[] eggBump; // an array of egg bumping sounds
+	public AudioMixerGroup output; // the output of egg bump sounds
+	public float minPitch = .85f;
+	public float maxPitch = 1.15f; // randomizing pitch of egg audio
 
 	private float startingHitPoints; // remember what we started with
 	private bool currentlyDying = false; // don't move while animating shell breaks
@@ -19,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     private bool grounded;	//checking if the egg is grounded
 	private Rigidbody rb;
 	private Renderer myRenderer;
+	private AudioSource crackOpenSource; // audio source for cracking shell
 
     void Start()
     {
@@ -28,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 		spawnPosition = transform.position;
 		startingHitPoints = hitPoints;
 		myRenderer = GetComponent<Renderer>();
+		crackOpenSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -54,7 +62,8 @@ public class PlayerController : MonoBehaviour {
 		if (!currentlyDying && (hitPoints <= 0f))
 		{
 			Debug.Log("We cracked up!");
-			// TODO play sound etc
+			crackOpenSource.PlayOneShot(crackOpen); // play egg cracking sound
+			crackOpenSource.pitch = Random.Range (minPitch, maxPitch); // random pitch
 			currentlyDying = true; // so we don't fire multiple times
 			myRenderer.enabled = false; // stop drawing the unbroken egg
 			if (deathPrefab)
@@ -98,6 +107,7 @@ public class PlayerController : MonoBehaviour {
 				// FIXME if not a pillow, lose health, etc
 				hitPoints -= impactForce * impactDamageRatio;
 				Debug.Log("hitPoints are now: " + hitPoints);
+				PlayBump();
 			}
 		}
 
@@ -107,6 +117,18 @@ public class PlayerController : MonoBehaviour {
 		if (col.collider.tag == "Floor") {
 			grounded = false;
 		}
+	}
+
+	// choosing random audio file for bump
+	void PlayBump()
+	{
+		int randomClip = Random.Range (0, eggBump.Length);
+		AudioSource bumpSource = gameObject.AddComponent<AudioSource>();
+		bumpSource.clip = eggBump [randomClip];
+		bumpSource.outputAudioMixerGroup = output;
+		bumpSource.pitch = Random.Range (minPitch, maxPitch);
+		bumpSource.Play ();
+		Destroy (bumpSource, eggBump[randomClip].length);
 	}
 
 }

@@ -6,153 +6,120 @@ public class MovingPlatform : MonoBehaviour {
 
 	public enum movementDirection
 	{
-		Vertical,
-		HorizontalForward,
-		HorizontalSideway
+		AlongXAxis,
+		AlongYAxis,
+		AlongZAxis
 	}
 
 	public movementDirection direction;
 
-	//the from(min) and to(max) distance for the platform.
-	public float minY;
-	public float maxY;
-
-	public float minX;
-	public float maxX;
-
-	public float minZ;
-	public float maxZ;
-
 	public float speed = 0.1f;
 
-	//the colliders contacting the object
-	private Collider[] objects;
+	public bool movesWithPlayerTouch;
 
-	//if the player touv=ch the platform, true
-	private bool touched;
+	//the from(min) and to(max) distance for the platform.
+	public float minPosition;
+	public float maxPosition;
 
-	//we are using the sin fucntion for movement. So these are the starting point of sin values. 
+	//we are using the sin fucntion for movement. So the angles will determine the starting position of platform
 	//-1/1 will make the platform start in corner
-	public float y = -1f;
-	public float x = 4.567821f;
-	public float z = 4.567821f;
+	public float x = -1f;
 
-	//interpolation values
-	float xInter;
-	float yInter;
-	float zInter;
+	//interpolation values used in lerp
+	private float Inter;
 
-	//scale of the platform
-	private float sizeX;
-	private float sizeY;
-	private float sizeZ;
 
-	//if we want to adjust the center of the object
-	public float extraX; 
-	public float extraY; 
-	public float extraZ;
-
+	private Collider[] colliders;
 	public LayerMask tileLayer;
-
-	public bool moveOnWithPlayerTouch;
-
+	public Vector3 forCheckingColliders;
+	public Vector3 checkVolume;
 
 	// Use this for initialization
 	void Start () {
-		sizeX = transform.localScale.x;
-		sizeY = transform.localScale.y;
-		sizeZ = transform.localScale.z;
+
 	}
 
+	void FixedUpdate(){
+
+		colliders = Physics.OverlapBox( transform.position + forCheckingColliders , checkVolume , Quaternion.identity , tileLayer);
+	}
 
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 center = new Vector3 (transform.position.x + extraX, transform.position.y + extraY, transform.position.z + extraZ);
-		Vector3 halfExtents = new Vector3 (sizeX/2, sizeY/2, sizeZ/2);
-
-		//returning colliders that are on the moving platform so that it can move along with it
-		objects = Physics.OverlapBox( center, halfExtents, Quaternion.identity , tileLayer);
-
-
-		if (moveOnWithPlayerTouch == false) {
-
+		if (movesWithPlayerTouch == false) {
 
 			//for movement, we use the sin movement. We convert the [-1,1] range of sin to range [0,1] using inverse lerp. 
 			//Then we use the converted range on lerp for the min and max diatance to cover.
+			Inter = Mathf.InverseLerp (-1f, 1f, Mathf.Sin (x));
 
-			//for vertical movement
-			if (direction == movementDirection.Vertical) {
+			Vector3 pos1 = transform.localPosition;
 
-				yInter = Mathf.InverseLerp (-1f, 1f, Mathf.Sin (y));
+			if (direction == movementDirection.AlongYAxis) {
 
-				transform.localPosition = new Vector3 (transform.localPosition.x, (float) Mathf.Lerp (minY, maxY, yInter), transform.localPosition.z);
-
-				y += speed * Time.deltaTime;
+				transform.position = new Vector3 (transform.position.x, (float) Mathf.Lerp (minPosition, maxPosition,Inter), transform.position.z);
 
 			}
 
 			//for horizontal movement wrt z axis
-			else if (direction == movementDirection.HorizontalForward) {
+			else if (direction == movementDirection.AlongZAxis) {
 
-				zInter = Mathf.InverseLerp (-1f, 1f, Mathf.Sin (z));
-
-				float pos1 = transform.localPosition.z;
-
-				transform.localPosition = new Vector3 ( transform.localPosition.x, transform.localPosition.y , (float) Mathf.Lerp (minZ, maxZ, zInter));
-
-				float pos2 = transform.localPosition.z;
-
-				//for the objects on top of the moving platform to move along, we add the distance covered by the platform
-				//from initial to final position per frame rate to objects 
-				for (int i = 0; i < objects.Length; i++) {
-					objects[i].transform.localPosition = new Vector3 (objects[i].transform.localPosition.x, objects[i].transform.localPosition.y, objects[i].transform.localPosition.z + (pos2 - pos1));
-
-				}
-
-				z += speed * Time.deltaTime;
+				transform.position = new Vector3 ( transform.position.x, transform.position.y , (float) Mathf.Lerp (minPosition, maxPosition,Inter));
 
 			}
 
 			//for horizontal movement wrt x axis
-			else if (direction == movementDirection.HorizontalSideway) {
+			else if (direction == movementDirection.AlongXAxis) {
 
-				xInter = Mathf.InverseLerp (-1f, 1f, Mathf.Sin (x));
-
-				float pos1 = transform.localPosition.x;
-
-				transform.localPosition = new Vector3 ( (float) Mathf.Lerp (minX, maxX, xInter), transform.localPosition.y , transform.localPosition.z);
-
-				float pos2 = transform.localPosition.x;
-
-				//for the objects on top of the moving platform to move along, we add the distance covered by the platform
-				//from initial to final position per frame rate to objects 
-				for (int i = 0; i < objects.Length; i++) {
-					objects[i].transform.position = new Vector3 (objects[i].transform.position.x + (pos2 - pos1), objects[i].transform.position.y, objects[i].transform.position.z);
-
-				}
-
-				x += speed * Time.deltaTime;
+				transform.position = new Vector3 ( (float) Mathf.Lerp (minPosition, maxPosition,Inter), transform.position.y , transform.position.z);
 
 			}
 
+			Vector3 pos2 = transform.localPosition;
+
+			int k = 0;
+			for (int i = 0; i < colliders.Length; i++) {
+
+
+				if (colliders [i].gameObject.tag == "PlayerColliders" && k==0) {
+					colliders [i].transform.parent.position += (pos2 - pos1);
+					k=1;
+				} else if (colliders [i].gameObject.tag != "Player" && colliders [i].gameObject.tag != "PlayerColliders"){
+					colliders[i].transform.position += (pos2 - pos1);
+				}
+
+			}
+
+			k=0;
+
+			x += speed * Time.deltaTime;
+
 		}
-
-
 
 	}
 
 	void OnCollisionEnter(Collision coll){
 
 		if (coll.gameObject.tag == "Player") {
-			moveOnWithPlayerTouch = false;
+			movesWithPlayerTouch = false;
 		}
+
+	}
+
+	void OnCollisionExit(Collision coll){
+
+		if (coll.gameObject.tag == "Player") {
+			movesWithPlayerTouch = false;
+		}
+
 
 	}
 
 	private void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
 		//Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
-		Gizmos.DrawWireCube(new Vector3(transform.localPosition.x + extraX,transform.localPosition.y+extraY,transform.localPosition.z+extraZ), new Vector3(sizeX,sizeY,sizeZ));
+		Gizmos.DrawWireCube(transform.position + forCheckingColliders, checkVolume * 2 );
 	}
+
+
 }
