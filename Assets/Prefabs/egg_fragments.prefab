@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23041337711527946}
   - component: {fileID: 64819699129322104}
   - component: {fileID: 54040873332591072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23219184754916070}
   - component: {fileID: 64163948312244800}
   - component: {fileID: 54426657254942830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 23710214820877332}
   - component: {fileID: 64304324028663980}
   - component: {fileID: 54915629266351358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 23853533142103590}
   - component: {fileID: 64474566430004386}
   - component: {fileID: 54589687980004290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4382495301251966}
   - component: {fileID: 114894659179153372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: egg_fragments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 23374609875100772}
   - component: {fileID: 64323506028582986}
   - component: {fileID: 54800138149287416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 23726653568780972}
   - component: {fileID: 64298653539390034}
   - component: {fileID: 54146336534912416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 23078354877895254}
   - component: {fileID: 64436868687772102}
   - component: {fileID: 54346134854463914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 23233792428214030}
   - component: {fileID: 64339423817836386}
   - component: {fileID: 54005231586524586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 23872372899946830}
   - component: {fileID: 64455395678378012}
   - component: {fileID: 54273179296803650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 23600077999180538}
   - component: {fileID: 64860511011941726}
   - component: {fileID: 54534827133355300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 23469164505966570}
   - component: {fileID: 64315746809461762}
   - component: {fileID: 54583856699344696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 23665948059686716}
   - component: {fileID: 64746154538082424}
   - component: {fileID: 54008778553005356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 23192742014520042}
   - component: {fileID: 64105400041369502}
   - component: {fileID: 54334087739067192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 23430990772980712}
   - component: {fileID: 64711106731998426}
   - component: {fileID: 54310718425378070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 23481681509707358}
   - component: {fileID: 64425962818994950}
   - component: {fileID: 54054083802541492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 23721747222543976}
   - component: {fileID: 64958641451567172}
   - component: {fileID: 54632289539919166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shell014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
