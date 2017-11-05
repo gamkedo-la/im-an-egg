@@ -262,7 +262,7 @@ MonoBehaviour:
   speed: 3.5
   jumpForce: 40
   fallTooFarY: -25
-  maxImpactForce: 3
+  maxImpactForce: 4
   centerOfMass: {x: 0, y: 0.3, z: 0}
   hitPoints: 10
   impactDamageRatio: 0.5
