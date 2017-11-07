@@ -14,10 +14,10 @@ MonoBehaviour:
   Name: Green Alien
   frames:
   - texture: {fileID: 2800000, guid: 38d62bd2737bbde4daa08b3f5307d887, type: 3}
-    duation: 5
+    duation: 3
   - texture: {fileID: 2800000, guid: ef5207d42c0d38046b66f99e439c4f11, type: 3}
     duation: 0.1
   - texture: {fileID: 2800000, guid: 38d62bd2737bbde4daa08b3f5307d887, type: 3}
-    duation: 5
+    duation: 3
   - texture: {fileID: 2800000, guid: 5b88c82de4673fe43a05ce29ae1f1787, type: 3}
     duation: 0.1
