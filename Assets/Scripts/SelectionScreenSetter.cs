@@ -15,6 +15,7 @@ public class SelectionScreenSetter : MonoBehaviour
 		if (Type != null && Button != null)
 		{
 			tex.frames = Type.frames;
+			tex.Refresh( );
 			Button.GetComponentInChildren<Text>( ).text = Type.Name;
 		}
 	}

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9062d0b64ec608439a00f9ca5b75352, type: 3}
   m_Name: Ninja
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Ninja
   frames:
-  - texture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 022a8ee755cd64520ba135b2ce16648d, type: 3}
     duation: 10
