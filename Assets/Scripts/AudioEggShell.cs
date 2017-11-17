@@ -7,14 +7,21 @@ public class AudioEggShell : MonoBehaviour {
 
 	public AudioClip[] eggShell;
 	public AudioMixerGroup output;
+
 	public float minPitch = .85f;
 	public float maxPitch = 1.15f;
 	public float minVol = .85f;
 	public float maxVol = 1.15f;
 
+	public bool alreadyPlayed = false;
+
 	void OnCollisionEnter()
 	{
-		PlayShellPiece();
+		if (alreadyPlayed = false) 
+		{
+			PlayShellPiece ();
+			alreadyPlayed = true;
+		}
 	}
 
 	void PlayShellPiece()
@@ -25,7 +32,7 @@ public class AudioEggShell : MonoBehaviour {
 		shellSource.outputAudioMixerGroup = output;
 		shellSource.pitch = Random.Range (minPitch, maxPitch);
 		shellSource.volume = Random.Range (minVol, maxVol);
-		shellSource.Play ();
+		shellSource.Play();
 		Destroy (shellSource, eggShell[randomClip].length);
 	}
 }
