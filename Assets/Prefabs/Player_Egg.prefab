@@ -118,7 +118,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225319207174236}
-  m_Mesh: {fileID: 4300000, guid: 2c5587e4a2536ae4b86b93f55c4db054, type: 3}
+  m_Mesh: {fileID: 4300000, guid: d45d6100f4e4b07429efd7c6aa148c41, type: 3}
 --- !u!54 &54855487951771132
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -144,7 +144,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243724083403741322, guid: 9a1249c879fb14c9daaecc4bf1e7b33e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9d43455fddd9b46c2b38216e2b07bbf3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8b6ba2a80f09841c890b84a7e47fa414, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -268,7 +268,7 @@ MonoBehaviour:
   impactDamageRatio: 0.5
   deathPrefab: {fileID: 1226280176596404, guid: f03ac4ddfb059084c8742adca21f3e57,
     type: 2}
-  crackOpen: {fileID: 8300000, guid: 9d43455fddd9b46c2b38216e2b07bbf3, type: 3}
+  crackOpen: {fileID: 8300000, guid: 8b6ba2a80f09841c890b84a7e47fa414, type: 3}
   eggBump:
   - {fileID: 8300000, guid: 935f16996766047418024dd404398728, type: 3}
   - {fileID: 8300000, guid: 9773b16e35264428b8aa13d1c0822a33, type: 3}

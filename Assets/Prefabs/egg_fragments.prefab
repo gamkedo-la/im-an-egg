@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4382495301251966}
   - component: {fileID: 114894659179153372}
+  - component: {fileID: 114323512473117102}
   m_Layer: 9
   m_Name: egg_fragments
   m_TagString: Untagged
@@ -1656,6 +1657,29 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300026, guid: 34dbf3e3aab27814b8fc3cf14a8cf52e, type: 3}
+--- !u!114 &114323512473117102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226280176596404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e188af7a50241e39ae82579e97fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eggShell:
+  - {fileID: 8300000, guid: b61aa27d2f0304de9b3a8d48730a9745, type: 3}
+  - {fileID: 8300000, guid: e5e70e154d5fc42bdbe524dcd8ce2760, type: 3}
+  - {fileID: 8300000, guid: 77a69e1fb61084ce08f61d2878ec57ed, type: 3}
+  - {fileID: 8300000, guid: 546e8b3a9560b41fdaba8a86400ad891, type: 3}
+  - {fileID: 8300000, guid: 1622569c59c814dc79192494898c4ba5, type: 3}
+  - {fileID: 8300000, guid: f7b630ae940ce4b20a5857347f6b0145, type: 3}
+  output: {fileID: 243315830365972574, guid: 9a1249c879fb14c9daaecc4bf1e7b33e, type: 2}
+  minPitch: 0.85
+  maxPitch: 1.15
+  minVol: 0.85
+  maxVol: 1.15
 --- !u!114 &114894659179153372
 MonoBehaviour:
   m_ObjectHideFlags: 1
