@@ -10,18 +10,13 @@ public class AudioEggShell : MonoBehaviour {
 
 	public float minPitch = .85f;
 	public float maxPitch = 1.15f;
-	public float minVol = .85f;
-	public float maxVol = 1.15f;
+	public float minVol = .55f;
+	public float maxVol = .85f;
 
-	public bool alreadyPlayed = false;
-
-	void OnCollisionEnter()
+	void OnCollisionEnter(Collision collision)
 	{
-		if (alreadyPlayed = false) 
-		{
+		if (collision.relativeVelocity.magnitude > 5)
 			PlayShellPiece ();
-			alreadyPlayed = true;
-		}
 	}
 
 	void PlayShellPiece()
