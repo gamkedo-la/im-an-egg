@@ -36,6 +36,11 @@ public class CameraController : MonoBehaviour
 	private void FollowPlayer( )
 	{
 		Vector3 newPosition = player.transform.position + offset;
-		transform.position = Vector3.SmoothDamp( transform.position, newPosition, ref positionVelocity, smoothing );
+		RaycastHit rhInfo;
+		if(Physics.Raycast(player.transform.position, offset, out rhInfo, offset.magnitude, ~LayerMask.GetMask("Player"))) {
+			newPosition = rhInfo.point + 2.0f * Vector3.up;
+			// Debug.Log(rhInfo.collider.gameObject.name);
+		}
+		transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref positionVelocity, smoothing);
 	}
 }
