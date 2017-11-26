@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Main Menu.unity
+    guid: 51dd5165c2a6e4a46a5211c72508bb6c
+  - enabled: 1
+    path: Assets/_Scenes/Credits.unity
+    guid: eb06b6fc75e8447f989e0c2f3dc15b9a
+  - enabled: 1
+    path: Assets/_Scenes/Egg Drop Soup.unity
+    guid: 51d92af838573f742861e2ceacddd425
+  - enabled: 1
+    path: Assets/_Scenes/halfpipe.unity
+    guid: 79e5be139459b4d0cbc8d340e1671375
