@@ -21,18 +21,21 @@ public class PlayerController : MonoBehaviour {
 
 	private float startingHitPoints; // remember what we started with
 	private bool currentlyDying = false; // don't move while animating shell breaks
-	private Vector3 spawnPosition; // starting position for when we respawn
+	private Transform spawnTransform; // starting position for when we respawn, transform so can move over platform
     private bool grounded;	//checking if the egg is grounded
 	private Rigidbody rb;
 	private Renderer myRenderer;
 	private AudioSource crackOpenSource; // audio source for cracking shell
 
+	public void SetSpawnPoint(Transform useTransform) {
+		spawnTransform = useTransform;
+		transform.position = spawnTransform.position;
+	}
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
-		spawnPosition = new Vector3();
-		spawnPosition = transform.position;
 		startingHitPoints = hitPoints;
 		myRenderer = GetComponent<Renderer>();
 		crackOpenSource = GetComponent<AudioSource>();
@@ -54,7 +57,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			Debug.Log("We fell out of the world! Respawning.");
 			// TODO: die? play sound etc
-			transform.position = spawnPosition;
+			transform.position = spawnTransform.position;
+			Rigidbody rb = GetComponent<Rigidbody>();
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
 			hitPoints = startingHitPoints;
 		}
 
@@ -84,7 +90,10 @@ public class PlayerController : MonoBehaviour {
 	{
 		Debug.Log("About to respawn... " + Time.time);
 		yield return new WaitForSeconds(5);
-		transform.position = spawnPosition;
+		transform.position = spawnTransform.position;
+		Rigidbody rb = GetComponent<Rigidbody>();
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
 		currentlyDying = false;
 		hitPoints = startingHitPoints;
 		myRenderer.enabled = true;

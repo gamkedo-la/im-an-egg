@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
 		transform.Rotate( angleX, 0, 0 );
 	}
 
-	void FixedUpdate( )
+	void LateUpdate( ) // using LateUpdate so it happens after all movement code
 	{
 		if (player != null)
 			FollowPlayer( );

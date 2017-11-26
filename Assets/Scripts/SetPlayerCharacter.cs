@@ -22,7 +22,10 @@ public class SetPlayerCharacter : MonoBehaviour
 	
 	public void Select(int index)
 	{
-		var egg = Instantiate( player, spawnPoint.position, Quaternion.identity );
+		var egg = Instantiate( player );
+
+		PlayerController pcScript = egg.GetComponent<PlayerController>();
+		pcScript.SetSpawnPoint(spawnPoint);
 
 		AnimatedTexture playerTextureAnimator = egg.GetComponent<AnimatedTexture>( );
 		playerTextureAnimator.frames = characters[index].frames;
