@@ -100,6 +100,11 @@ public class PlayerController : MonoBehaviour {
 
 		if (!currentlyDying && (maxImpactForce > 0f)) // do we care about impact strength?
 		{
+			if(LayerMask.LayerToName(col.gameObject.layer) == "BasketDontBreakEgg") {
+				Debug.Log("HIT BASKET! Can't crack the egg.");
+				return;
+			}
+
 			float impactForce = Mathf.Abs(Vector3.Dot(col.contacts[0].normal,col.relativeVelocity) * rb.mass);
 			if (impactForce > maxImpactForce)
 			{
