@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GateTrigger : MonoBehaviour {
 
-
 	void OnTriggerEnter (Collider other) {
 		Debug.Log ("Object Entered Trigger");
 
