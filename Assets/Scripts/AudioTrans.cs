@@ -9,14 +9,17 @@ public class AudioTrans : MonoBehaviour {
 
 	private AudioSource portalSource;
 
-	void Start () 
+	void Awake () 
 	{
-		portalSource = GetComponent<AudioSource>();
+		transform.SetParent(null); // DontDestroyOnLoad requires object be at root of hierarchy
 		DontDestroyOnLoad(gameObject);
+
+		portalSource = GetComponent<AudioSource>();
+		portalSource.clip = portal;
 	}
 
 	void OnTriggerEnter (Collider other) 
 	{
-		portalSource.PlayOneShot(portal);	
+		portalSource.Play();	
 	}
 }
