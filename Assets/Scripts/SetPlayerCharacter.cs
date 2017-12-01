@@ -1,8 +1,13 @@
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Audio;
 
 public class SetPlayerCharacter : MonoBehaviour
 {
+	public AudioClip click;
+
+	private AudioSource clickSource;
+
 	[SerializeField] private GameObject player;
 	[SerializeField] private GameObject canvas;
 	[SerializeField] private GameObject eggScreen;
@@ -18,6 +23,8 @@ public class SetPlayerCharacter : MonoBehaviour
 		Assert.IsNotNull( cameraController );
 		Assert.IsNotNull( characters );
 		Assert.AreNotEqual( characters.Length, 0 );
+
+		clickSource = GetComponent<AudioSource>();
 	}
 	
 	public void Select(int index)
@@ -35,5 +42,7 @@ public class SetPlayerCharacter : MonoBehaviour
 		cameraController.SetPlayer( egg );
 		canvas.SetActive( false );
 		eggScreen.SetActive( false );
+
+		clickSource.PlayOneShot(click);
 	}
 }
