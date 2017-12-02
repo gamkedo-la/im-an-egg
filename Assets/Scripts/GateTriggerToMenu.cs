@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GateTrigger : MonoBehaviour {
-
-	public string sceneToLoad = "Main Menu";
+public class GateTriggerToMenu : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		Debug.Log ("Object Entered Trigger");
 
-		//sceneName = sceneToLoad.name;
-
-		SceneManager.LoadScene(sceneToLoad);
+		SceneManager.LoadScene("Main Menu");
 	}
 	
 	
