@@ -8,9 +8,11 @@ public class GateTriggerToMenu : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		Debug.Log ("Object Entered Trigger");
 
-		SceneManager.LoadScene("Main Menu");
+		LoadMenuScene ();
 	}
 	
-	
+	public void LoadMenuScene () {
+		SceneManager.LoadScene("Main Menu");
+	}
 
 }

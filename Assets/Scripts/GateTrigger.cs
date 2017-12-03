@@ -12,6 +12,10 @@ public class GateTrigger : MonoBehaviour {
 
 		//sceneName = sceneToLoad.name;
 
+		LoadScene ();
+	}
+
+	public void LoadScene () {
 		SceneManager.LoadScene(sceneToLoad);
 	}
 	
