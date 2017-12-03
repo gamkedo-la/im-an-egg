@@ -21,5 +21,6 @@ public class AudioTrans : MonoBehaviour {
 	void OnTriggerEnter (Collider other) 
 	{
 		portalSource.Play();	
+		Destroy(gameObject, 4);
 	}
 }
