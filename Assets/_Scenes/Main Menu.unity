@@ -4659,6 +4659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 8300000, guid: 261adfc095ad54026a970aba1cb65943, type: 3}
+  forgetEggPicked: 1
   player: {fileID: 1225319207174236, guid: db76f824208ea4b46b5cce204c15edaf, type: 2}
   canvas: {fileID: 1671979215}
   eggScreen: {fileID: 2143289944}
@@ -4764,7 +4765,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

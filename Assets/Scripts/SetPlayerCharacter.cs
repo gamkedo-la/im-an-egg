@@ -8,6 +8,8 @@ public class SetPlayerCharacter : MonoBehaviour
 
 	private AudioSource clickSource;
 
+	public bool forgetEggPicked = false;
+
 	[SerializeField] private GameObject player;
 	[SerializeField] private GameObject canvas;
 	[SerializeField] private GameObject eggScreen;
@@ -25,10 +27,22 @@ public class SetPlayerCharacter : MonoBehaviour
 		Assert.AreNotEqual( characters.Length, 0 );
 
 		clickSource = GetComponent<AudioSource>();
+
+		if(forgetEggPicked == false) { // set this to true in main scene to keep egg picker there
+			int lastEggPicked = PlayerPrefs.GetInt("eggStyle", -1);
+			if(lastEggPicked != -1) {
+				useEggStyle(lastEggPicked);
+			}
+		}
 	}
 	
 	public void Select(int index)
 	{
+		PlayerPrefs.SetInt("eggStyle", index);
+		useEggStyle(index);
+	}
+
+	public void useEggStyle(int index) {
 		var egg = Instantiate( player );
 
 		PlayerController pcScript = egg.GetComponent<PlayerController>();
