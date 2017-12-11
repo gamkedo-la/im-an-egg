@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 	public AudioMixerGroup output; // the output of egg bump sounds
 	public float minPitch = .85f;
 	public float maxPitch = 1.15f; // randomizing pitch of egg audio
+	public AudioClip falling;
 
 	private float startingHitPoints; // remember what we started with
 	private bool currentlyDying = false; // don't move while animating shell breaks
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody rb;
 	private Renderer myRenderer;
 	private AudioSource crackOpenSource; // audio source for cracking shell
+	private AudioSource fallingSource;
 
 	public void SetSpawnPoint(Transform useTransform) {
 		spawnTransform = useTransform;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 		startingHitPoints = hitPoints;
 		myRenderer = GetComponent<Renderer>();
 		crackOpenSource = GetComponent<AudioSource>();
+		fallingSource = GetComponent<AudioSource> ();
     }
 
     void FixedUpdate()
@@ -56,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 		if ((fallTooFarY != 0f) && (rb.position.y < fallTooFarY))
 		{
 			Debug.Log("We fell out of the world! Respawning.");
-			// TODO: die? play sound etc
+			fallingSource.PlayOneShot(falling);
 			transform.position = spawnTransform.position;
 			Rigidbody rb = GetComponent<Rigidbody>();
 			rb.velocity = Vector3.zero;

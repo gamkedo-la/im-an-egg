@@ -12,6 +12,8 @@ public class AudioEggShell : MonoBehaviour {
 	public float maxPitch = 1.15f;
 	public float minVol = .55f;
 	public float maxVol = .85f;
+	public float space = 1.0f;
+	public float distance = 50;
 
 	void OnCollisionEnter(Collision collision)
 	{
@@ -27,6 +29,9 @@ public class AudioEggShell : MonoBehaviour {
 		shellSource.outputAudioMixerGroup = output;
 		shellSource.pitch = Random.Range (minPitch, maxPitch);
 		shellSource.volume = Random.Range (minVol, maxVol);
+		shellSource.spatialBlend = space;
+		shellSource.maxDistance = distance;
+		shellSource.rolloffMode = AudioRolloffMode.Linear;
 		shellSource.Play();
 		Destroy (shellSource, eggShell[randomClip].length);
 	}
