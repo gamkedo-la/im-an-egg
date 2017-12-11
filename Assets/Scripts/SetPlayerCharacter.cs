@@ -38,6 +38,7 @@ public class SetPlayerCharacter : MonoBehaviour
 	
 	public void Select(int index)
 	{
+		clickSource.PlayOneShot(click);
 		PlayerPrefs.SetInt("eggStyle", index);
 		useEggStyle(index);
 	}
@@ -56,7 +57,5 @@ public class SetPlayerCharacter : MonoBehaviour
 		cameraController.SetPlayer( egg );
 		canvas.SetActive( false );
 		eggScreen.SetActive( false );
-
-		clickSource.PlayOneShot(click);
 	}
 }
