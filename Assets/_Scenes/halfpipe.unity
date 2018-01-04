@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e488645d5c6e0424caaf6c59c5ad977a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  click: {fileID: 0}
+  click: {fileID: 8300000, guid: 261adfc095ad54026a970aba1cb65943, type: 3}
 --- !u!1 &520898642 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1225319207174236, guid: db76f824208ea4b46b5cce204c15edaf,

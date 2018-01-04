@@ -11,13 +11,20 @@ public class GateTriggerToMenu : MonoBehaviour {
 
 	void Start ()
 	{
+		gameObject.AddComponent<AudioSource>();
 		clickSource = GetComponent<AudioSource>();
+		clickSource.clip = click;
 		transform.SetParent(null);
 		DontDestroyOnLoad(gameObject);
 	}
 
 	void OnTriggerEnter (Collider other) {
-		Debug.Log ("Object Entered Trigger");
+		Debug.Log ("Object Entered Trigger, it is of layer: "+other.gameObject.layer);
+		Debug.Log("Compare to:" + LayerMask.NameToLayer("Player"));
+
+		if(other.gameObject.layer != LayerMask.NameToLayer("Player")) {
+			return; // stop eggshell fragments from ending map
+		}
 
 		clickSource.PlayOneShot(click);
 
