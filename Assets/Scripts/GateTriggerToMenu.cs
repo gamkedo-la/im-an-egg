@@ -21,6 +21,10 @@ public class GateTriggerToMenu : MonoBehaviour {
 
 		clickSource.PlayOneShot(click);
 
+		if(timeScript.instance != null) {
+			timeScript.instance.checkForNewRecord();
+		}
+
 		LoadMenuScene ();
 	}
 	

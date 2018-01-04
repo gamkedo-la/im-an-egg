@@ -5138,6 +5138,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114281570156387096, guid: 96c7141b3b7c344799d9c64ce2776cfc,
+        type: 2}
+      propertyPath: saveKey
+      value: Lev3Record
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96c7141b3b7c344799d9c64ce2776cfc, type: 2}
   m_IsPrefabParent: 0
@@ -5623,11 +5628,11 @@ RectTransform:
   m_Father: {fileID: 1429805173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -278.3, y: -21.6}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10.799988, y: -7.799988}
   m_SizeDelta: {x: 160, y: 35}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1484185078
 MonoBehaviour:
   m_ObjectHideFlags: 0
