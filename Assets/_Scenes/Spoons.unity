@@ -968,7 +968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4412329722809236, guid: 6b4ba1dd315f2cb40ad2243ce6106e5b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44.83
+      value: 42.52
       objectReference: {fileID: 0}
     - target: {fileID: 4412329722809236, guid: 6b4ba1dd315f2cb40ad2243ce6106e5b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3063,6 +3063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 8300000, guid: 261adfc095ad54026a970aba1cb65943, type: 3}
+  forgetEggPicked: 0
   player: {fileID: 1225319207174236, guid: db76f824208ea4b46b5cce204c15edaf, type: 2}
   canvas: {fileID: 1671979215}
   eggScreen: {fileID: 2143289944}
@@ -3603,6 +3604,18 @@ Prefab:
     - target: {fileID: 100022, guid: 3be44d45917822d4c8f58fe13261ee21, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 3be44d45917822d4c8f58fe13261ee21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.369
+      objectReference: {fileID: 0}
+    - target: {fileID: 400018, guid: 3be44d45917822d4c8f58fe13261ee21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400018, guid: 3be44d45917822d4c8f58fe13261ee21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3487512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3be44d45917822d4c8f58fe13261ee21, type: 3}
