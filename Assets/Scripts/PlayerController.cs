@@ -117,7 +117,8 @@ public class PlayerController : MonoBehaviour {
 				return;
 			}
 
-			float impactForce = Mathf.Abs(Vector3.Dot(col.contacts[0].normal,col.relativeVelocity) * rb.mass);
+			float dampenCrashForceForEasierDifficulty = 0.85f;
+			float impactForce = dampenCrashForceForEasierDifficulty * Mathf.Abs(Vector3.Dot(col.contacts[0].normal,col.relativeVelocity) * rb.mass);
 			if (impactForce > maxImpactForce)
 			{
 				Debug.Log("Hit something HARD! Impact force = " + impactForce);
